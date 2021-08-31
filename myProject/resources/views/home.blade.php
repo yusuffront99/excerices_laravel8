@@ -1,5 +1,5 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1>Y_front Blog</h1>
+    <h1>My Profile</h1>
 @endsection

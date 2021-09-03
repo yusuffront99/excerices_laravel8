@@ -8,16 +8,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link {{$title === 'Hello' ? 'active' : ''}}" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/about">About</a>
+            <a class="nav-link {{$title === 'About' ? 'active' : ''}}" href="/about">About</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/blog">Blog</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <a class="nav-link {{$title === 'blog' ? 'active' : ''}}" href="/blog">Blog</a>
             </li>
         </ul>
         </div>

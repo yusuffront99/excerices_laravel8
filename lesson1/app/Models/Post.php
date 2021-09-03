@@ -17,6 +17,12 @@ class Post
             "slug"=>"title_2",
             "author"=>"Dewi",
             "body"=>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi debitis qui iusto in, pariatur aperiam, sed dignissimos suscipit aut quia ut harum quaerat doloribus quidem? Minima reiciendis facilis similique. Obcaecati nemo officia laudantium earum "
+        ],
+        [
+            "judul"=>"Title_three",
+            "slug"=>"title_3",
+            "author"=>"Kipau",
+            "body"=>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi debitis qui iusto in, pariatur aperiam, sed dignissimos suscipit aut quia ut harum quaerat doloribus quidem? Minima reiciendis facilis similique. Obcaecati nemo officia laudantium earum "
         ]
     ];
 
@@ -28,14 +34,6 @@ class Post
     public static function find($slug)
     {
         $posts = static::all();
-
-        // $post = [];
-        // foreach ($posts as $p) {
-        //     if($p["slug"] === $slug){
-        //         $post = $p;
-        //     }
-        // }
-
         return $posts->firstWhere('slug', $slug);
     }
 }

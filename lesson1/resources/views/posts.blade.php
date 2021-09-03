@@ -3,7 +3,7 @@
 @section('container')
 <div class="row">
     @foreach($posts as $post)
-        <div class="col-sm-6">
+        <div class="col-sm-6 mb-3">
             <div class="card">
             <div class="card-body">
                 <h5 class="card-title"> {{$post['judul']}} </h5>

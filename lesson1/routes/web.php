@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,13 +22,12 @@ Route::get('/', function(){
 
 Route::get('/about', function(){
     return view('about', [
-        "title"=>"about",
+        "title"=>"About",
         "name"=>"Yusuf",
-        "github"=>"yusuffront@gmail.com",
-        "descriptions"=>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi debitis qui iusto in, pariatur aperiam, sed dignissimos suscipit aut quia ut harum quaerat doloribus quidem? Minima reiciendis facilis similique. Obcaecati nemo officia laudantium earum nisi! Totam veritatis qui quasi esse nisi quas amet et dicta nesciunt sed corrupti assumenda similique consequatur quis, voluptatibus eaque deserunt praesentium ipsa fuga eos provident aut dolorem tempore! Eum ad, minus maiores adipisci impedit error ."
+        "github"=>"yusuffront",
+        "descriptions"=>"lorem Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur vitae iure error hic ullam voluptatem voluptas omnis architecto velit animi, tempora cumque recusandae atque modi, fuga mollitia, perspiciatis quas voluptatum!"
     ]);
 });
-
 
 Route::get('/posts', [PostController::class, 'index']);
 

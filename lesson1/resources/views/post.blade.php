@@ -7,9 +7,9 @@
         Featured
     </div>
     <div class="card-body">
-        <h5 class="card-title"> {{$post['judul']}} </h5>
-        <p class="card-text"> {{$post['author']}} </p>
-        <p class="card-text"> {{$post['body']}} </p>
+        <h5 class="card-title"> {{$post->judul}} </h5>
+        <p class="card-text"> {{$post->author}} </p>
+        <p class="card-text"> {!! $post->body !!} </p>
         <a href="/posts" class="btn btn-primary">Go somewhere</a>
     </div>
     <div class="card-footer text-muted">

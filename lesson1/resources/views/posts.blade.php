@@ -9,7 +9,7 @@
                 <h5 class="card-title"> {{$post->title}} </h5>
                 <h5 class="card-subtitle text-muted"> {{$post->judul}} </h5><hr>
                 <p class="card-text mt-3"> {{$post->excerpt}} </p>
-                <a href="/posts/{{$post->slug}}" class="btn btn-primary">Go somewhere</a>
+                <a href="/posts/{{$post->slug}}" class="btn btn-primary">Details &raquo;</a>
             </div>
             </div>
         </div>

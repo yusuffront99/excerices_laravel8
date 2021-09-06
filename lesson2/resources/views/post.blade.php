@@ -1,5 +1,5 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1>Hello</h1>
+    <h6> {{$post['slug']}} </h6>
 @endsection

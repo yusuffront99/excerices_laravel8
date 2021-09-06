@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/', function(){
+    return view('home', [
+        'title'=>'Hello dev',
+        'background'=>'background.jpg'
+    ]);
+});
+
+
+// show all
+Route::get('/posts', function(){
+    return view('posts', [
+        "title"=>"My Blogs",
+        // ob => mn::all()
+        "posts"=> Post::all()
+    ]);
+});
+
+
+// show one
+Route::get('/posts/{slug}', function($slug){
+    return view('post', [
+        "title"=>"single post",
+        "post"=> Post::find($slug)
+    ]);
 });

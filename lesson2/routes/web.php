@@ -35,12 +35,14 @@ Route::get('/about', function(){
 
 Route::get('/posts', function(){
     return view('posts', [
-        "title" => "Blogs"
+        "title" => "blogs",
+        "posts" => Post::all()
     ]);
 });
 
-Route::get('/post', function(){
+Route::get('/posts/{slug}', function($slug){
     return view('post', [
-        "title" => "Blogs Details"
+        "title" => "blogs",
+        "post" => Post::find($slug)
     ]);
 });

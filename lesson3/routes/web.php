@@ -3,6 +3,8 @@
 use App\Models\Post;
 use App\Models\About;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\AboutController;
 
 
 /*
@@ -24,22 +26,8 @@ Route::get('/home', function(){
     return view('home');
 });
 
-Route::get('/about', function(){
-    return view('about', [
-        "about" => About::all()
-    ]);
-});
+Route::get('/about', [AboutController::class, 'profile']);
 
-Route::get('/posts', function(){
-    return view('posts',[
-        "title" => "Blogs",
-        "posts" => Post::all()
-    ]);
-});
+Route::get('/posts', [PostController::class, 'index']);
 
-Route::get('/posts/{slug}', function($slug){
-    return view('post', [
-        "title" => "single post",
-        "post" => Post::find($slug)
-    ]);
-});
+Route::get('/posts/{slug}', [PostController::class, 'present']);

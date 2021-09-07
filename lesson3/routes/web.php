@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Post;
+use App\Models\About;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,6 +22,12 @@ Route::get('/', function () {
 
 Route::get('/home', function(){
     return view('home');
+});
+
+Route::get('/about', function(){
+    return view('about', [
+        "about" => About::all()
+    ]);
 });
 
 Route::get('/posts', function(){

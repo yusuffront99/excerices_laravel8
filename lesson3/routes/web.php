@@ -29,3 +29,10 @@ Route::get('/posts', function(){
         "posts" => Post::all()
     ]);
 });
+
+Route::get('/posts/{slug}', function($slug){
+    return view('post', [
+        "title" => "single post",
+        "post" => Post::find($slug)
+    ]);
+});

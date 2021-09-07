@@ -15,7 +15,7 @@
 
 @include('navs.navbar')
 
-<div class="container-fluid m-3">
+<div class="container-fluid mt-4">
     @yield('container')
 </div>
 

@@ -16,11 +16,12 @@ class PostController extends Controller
         ]);
     }
 
-    public function present($id)
+    // route model binding
+    public function present(Post $post)
     {
         return view('post', [
             "title" => "single post",
-            "post" => Post::find($id)
+            "post" => $post
         ]);
     }
 

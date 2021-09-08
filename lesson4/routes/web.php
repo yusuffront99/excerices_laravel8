@@ -30,4 +30,4 @@ Route::get('/about', [AboutController::class, 'profile']);
 
 Route::get('/posts', [PostController::class, 'index']);
 
-Route::get('/posts/{post}', [PostController::class, 'present']);
+Route::get('/posts/{post:slug}', [PostController::class, 'present']);

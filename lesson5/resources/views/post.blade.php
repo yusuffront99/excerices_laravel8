@@ -8,6 +8,7 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">{{$post->sub_title}}</h5>
+            <h6 class="card-subtitle"><a href="/categories/{{$post->category->slug}}">Category : {{$post->category->name}}</a></h6><hr>
             <p class="card-text">{{$post->content}}</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>

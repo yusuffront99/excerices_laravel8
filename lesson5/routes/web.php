@@ -34,4 +34,4 @@ Route::get('/about', [AboutController::class, 'aboutShow']);
 
 Route::get('/posts', [PostController::class, 'index']);
 
-Route::get('/posts/{slug}', [PostController::class, 'view']);
+Route::get('/posts/{post:sub_title}', [PostController::class, 'view']);

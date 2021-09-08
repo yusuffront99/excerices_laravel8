@@ -16,11 +16,12 @@ class PostController extends Controller
         ]);
     }
 
-    public function view($slug)
+    // implicit binding 
+    public function view(Post $post)
     {
         return view('post', [
             "title" => "blogs",
-            "post" => Post::find($slug)
+            "post" => $post
         ]);
     }
 }

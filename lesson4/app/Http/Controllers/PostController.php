@@ -16,11 +16,11 @@ class PostController extends Controller
         ]);
     }
 
-    public function present($slug)
+    public function present($id)
     {
         return view('post', [
             "title" => "single post",
-            "post" => Post::find($slug)
+            "post" => Post::find($id)
         ]);
     }
 

@@ -27,3 +27,7 @@ Route::get('/home', function(){
 Route::get('/blogs',[BlogController::class, 'index']);
 
 Route::get('/blogs/{blog:sub_title}',[BlogController::class, 'details']);
+
+Route::get('/categories/{cateories:sub_title}',[BlogController::class, 'list']);
+
+

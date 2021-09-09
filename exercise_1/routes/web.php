@@ -28,6 +28,11 @@ Route::get('/blogs',[BlogController::class, 'index']);
 
 Route::get('/blogs/{blog:sub_title}',[BlogController::class, 'details']);
 
-Route::get('/categories/{cateories:sub_title}',[BlogController::class, 'list']);
+Route::get('/categories/{category:sub_title}', function(Category $category){
+    return view('category',[
+        "title"=>$category->name,
+        "blogs"=>$category->sub_title
+    ]);
+});
 
 

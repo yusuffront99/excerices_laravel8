@@ -9,7 +9,7 @@
             <div class="card-body">
                 <h5 class="card-title"> {{$blog->title}} </h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="/posts/post" class="btn btn-primary">Go somewhere</a>
+                <a href="/blogs/{{$blog->slug}}" class="btn btn-primary">Read mode ...</a>
             </div>
             </div>
         </div>

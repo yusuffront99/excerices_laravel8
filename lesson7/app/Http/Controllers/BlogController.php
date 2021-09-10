@@ -14,4 +14,11 @@ class BlogController extends Controller
             "blogs"=>Blog::all()
         ]);
     }
+
+    public function details(Blog $blog)
+    {
+        return view('blog', [
+            "blog"=>$blog
+        ]);
+    }
 }

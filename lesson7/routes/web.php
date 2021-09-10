@@ -23,3 +23,5 @@ Route::get('/home', function () {
 });
 
 Route::get('/blogs', [BlogController::class, 'index']);
+
+Route::get('/blogs/{blog:slug}', [BlogController::class, "details"]);

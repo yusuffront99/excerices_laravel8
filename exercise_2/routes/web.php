@@ -30,7 +30,11 @@ Route::get('/posts', [PostController::class, 'index']);
 
 Route::get('/posts/{post:title}', [PostController::class, 'details']);
 
-Route::get('/categories/{category:slug}', [CategoryController::class, 'categories']);
+Route::get('/categories/{category:slug}', function(Category $Category){
+     return view('category', [
+            "posts"=>$category
+        ]);
+});
 
 
 

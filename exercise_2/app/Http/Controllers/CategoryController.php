@@ -10,8 +10,6 @@ class CategoryController extends Controller
     //
     public function categories(Category $category)
     {
-        return view('category', [
-            "posts"=>$category
-        ]);
+       
     }
 }

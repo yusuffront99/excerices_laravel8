@@ -2,16 +2,18 @@
 
 @section('container')
 <div class="container mt-3">
-    <div class="row">
+    @foreach ($blogs as $blog)
+    <div class="row my-2">
         <div class="col-sm-6">
             <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
+                <h5 class="card-title"> {{$blog->title}} </h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="/posts/post" class="btn btn-primary">Go somewhere</a>
             </div>
             </div>
         </div>
     </div>
+    @endforeach
 </div>
 @endsection

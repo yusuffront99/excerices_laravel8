@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,4 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/blogs', function () {
-    return view('blogs');
-});
+Route::get('/blogs', [BlogController::class, 'index']);

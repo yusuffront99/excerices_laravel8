@@ -2,6 +2,7 @@
 
 @section('container')
 
+    <h1>Post Category : {{$category}}</h1>
     @foreach ($posts as $post)
     <div class="row mx-3 my-2">
         <div class="col-sm-6">

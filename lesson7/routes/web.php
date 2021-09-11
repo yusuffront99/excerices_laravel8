@@ -5,6 +5,7 @@ use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,6 @@ Route::get('/home', function () {
 Route::get('/blogs', [BlogController::class, 'index']);
 
 Route::get('/blogs/{blog:slug}', [BlogController::class, "details"]);
+
+// relationship table
+Route::get('/categories/{category:slug}', [CategoryController::class, 'category']);

@@ -6,10 +6,9 @@
         <div class="col-sm-6">
             <div class="card">
             <div class="card-body">
-                <h5 class="card-title"> {{$blog->title}} </h5>
-                <h6 class="text-muted"><a href="">cek</a></h6>
+                <h5 class="card-title"> {{$blog->category->name}} </h5>
+                <h6 class="text-muted"><a href="/categories/{{$blog->category->slug}}"> {{$blog->category->name}} </a></h6>
                 <p class="card-text">{{$blog->content}}</p>
-                <a href="/blogs/{{$blog->slug}}" class="btn btn-primary">Read mode ...</a>
             </div>
             </div>
         </div>

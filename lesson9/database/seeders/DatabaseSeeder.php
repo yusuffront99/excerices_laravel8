@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Phone;
 use App\Models\User;
+use App\Models\Store;
 
 class DatabaseSeeder extends Seeder
 {
@@ -38,6 +39,16 @@ class DatabaseSeeder extends Seeder
             "name"=>"zaenal",
             "email"=>"ahmadzaenal@gmail.com",
             "password"=>password_hash('abcde', PASSWORD_DEFAULT)
+        ]);
+
+        Store::create([
+            "name"=>"Huawei Store",
+            "street"=>"Jl.Tambun Bungan Jakarta Selatan"
+        ]);
+
+        Store::create([
+            "name"=>"Apple Store",
+            "street"=>"Jl.Tambun Bungan Tanggerang"
         ]);
 
     }

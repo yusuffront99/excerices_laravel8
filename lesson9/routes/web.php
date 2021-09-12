@@ -21,9 +21,5 @@ Route::get('/', function(){
     ]);
 });
 
-Route::get('/phones', function(){
-    return view('phones', [
-        "title"=>"phones"
-    ]);
-});
+Route::get('/phones', [PhoneController::class, 'index']);
 

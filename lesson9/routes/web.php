@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Phone; 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PhoneController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/data', function () {
-    return view('data');
+Route::get('/', function(){
+    return view('home', [
+        "title" => "Hello Developer"
+    ]);
 });
 
+Route::get('/phones', function(){
+    return view('phones', [
+        "title"=>"phones"
+    ]);
+});
 

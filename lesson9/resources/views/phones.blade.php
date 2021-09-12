@@ -11,6 +11,7 @@
                 <th scope="col">Brand</th>
                 <th scope="col">Price($)</th>
                 <th scope="col">User Account</th>
+                <th scope="col">Post Title</th>
                 </tr>
             </thead>
             
@@ -23,8 +24,9 @@
                     <th scope="row">{{$no++;}}</th>
                     <td>{{$phone->merk}}</td>
                     <td><b>$</b>{{$phone->price}}</td>
-                    <td><a href="/{{$phone->user->name}}/details" class="text-decoration-none text-danger fw-bold">{{$phone->user->name}}</a></td>
-                    </tr>
+                    <td><a href="" class="text-decoration-none text-danger fw-bold">{{$phone->post->name}}</a></td>
+                    
+                </tr>
                 </tbody>
             @endforeach
         </table>

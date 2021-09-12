@@ -11,15 +11,8 @@ class Phone extends Model
 
     protected $guarded = ['id'];
 
-    public function user()
+    public function posts()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(Post::class);
     }
-
-    // public function user()
-    // {
-    //     return $this->hasMany(User::class);
-    // }
-    
-
 }

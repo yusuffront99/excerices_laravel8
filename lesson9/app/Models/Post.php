@@ -11,8 +11,9 @@ class Post extends Model
 
     public $guarded = ['id'];
 
-    // public function phone()
-    // {
-    //     return $this->belongsTo(Phone::class);
-    // }
+    public function phones()
+    {
+        return $this->belongsTo(Phone::class);
+    }
+
 }

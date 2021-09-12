@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Phone; 
+use App\Models\User; 
+use App\Models\Post; 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhoneController;
 

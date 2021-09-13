@@ -1,12 +1,6 @@
 <?php
 
-
-use App\Models\Blog;
-use App\Models\Category;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CategoryController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -20,16 +14,5 @@ use App\Http\Controllers\CategoryController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
-
-Route::get('/home', function () {
-    return view('home');
-});
-
-Route::get('/blogs', [BlogController::class, 'index']);
-
-Route::get('/blogs/{blog:slug}', [BlogController::class, "details"]);
-
-// relationship table
-Route::get('/categories/{category:slug}', [CategoryController::class, 'category']);

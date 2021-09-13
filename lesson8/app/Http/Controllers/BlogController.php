@@ -18,7 +18,7 @@ class BlogController extends Controller
     public function details(Blog $blog)
     {
         return view('blog', [
-            "blog"=>$blog
+            "blog" => $blog
         ]);
     }
 }

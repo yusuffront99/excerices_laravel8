@@ -1,10 +1,6 @@
 <?php
 
-use App\Models\User;
-use App\Models\Post;
-use App\Models\Comment;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +14,5 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', function () {
-    return view('posts');
+    return view('welcome');
 });
-
-Route::get('/posts', [PostController::class, 'index']);

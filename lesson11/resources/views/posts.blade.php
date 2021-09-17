@@ -11,7 +11,7 @@
                 <h5 class="card-title">{{$post->title}}</h5><hr>
                 <p>
                     <small>Created by: </small>
-                    <small>in<a href="/categories/{{$post->category->slug}}">{{$post->category->name}}</a></small>
+                    <small> in <a href="/categories/{{$post->category->slug}}">{{$post->category->name}}</a></small>
                 </p>
                 <p class="card-text">{{$post->summary}}</p>
                 <a href="/posts/{{$post->slug}}" class="btn btn-primary">Read more ...</a>

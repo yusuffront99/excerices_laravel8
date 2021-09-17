@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->create();
+        User::factory(3)->create();
 
-        Post::factory(5)->create();
+        Post::factory(10)->create();
 
         // Post::create([
         //     "title"=>"blog pertama",
@@ -44,6 +44,14 @@ class DatabaseSeeder extends Seeder
         Category::create([
             "name"=>"Sains",
             "slug"=>"sains"
+        ]);
+        Category::create([
+            "name"=>"Technology",
+            "slug"=>"technology"
+        ]);
+        Category::create([
+            "name"=>"Art",
+            "slug"=>"art"
         ]);
 
         

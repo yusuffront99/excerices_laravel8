@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AuthorController extends Controller
 {
@@ -10,7 +11,8 @@ class AuthorController extends Controller
     {
         return view('posts', [
             "title"=>"Details User",
-            "posts"=>$author->post->load('category','author')
+            "name"=>$author->username,
+            "posts"=>$author->post
         ]);
     }
 }

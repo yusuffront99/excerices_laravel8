@@ -9,7 +9,7 @@
         <div class="card-body">
             <h3 class="card-title text-center">{{$post->title}}</h3><hr>
             <p>
-                <a href="">{{$username}}</a>
+                <a href="">{{$usernameq}}</a>
                 <a href="/categories/{{$post->category->slug}}">{{$post->category->name}}</a></p>
             <p class="card-text">{!!$post->content!!}</p>
             <a href="/posts/{{$post->slug}}" class="btn btn-primary">Read more ...</a>

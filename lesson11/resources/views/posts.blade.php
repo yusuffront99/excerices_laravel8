@@ -1,16 +1,18 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="container mt-4">
-        <div class="card">
-            <div class="card-header">
-                Featured
+    <div class="container mt-5">
+        @foreach ($posts as $post)
+        <div class="card my-2">
+            <div class="card-header text-white bg-primary">
+                <h4> {{$post->title}}</h4>
             </div>
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title">{{$post->title}}</h5>
+                <p class="card-text">{{$post->summary}}</p>
+                <a href="/posts/{{$post->slug}}" class="btn btn-primary">Read more ...</a>
             </div>
         </div>
+        @endforeach
     </div>
 @endsection

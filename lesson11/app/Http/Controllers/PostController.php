@@ -10,6 +10,7 @@ class PostController extends Controller
     public function index()
     {
         return view('posts', [
+            "active" => "posts",
             "title" => "posts",
             "posts" => Post::all()
         ]);
@@ -18,6 +19,7 @@ class PostController extends Controller
     public function details(Post $post)
     {
         return view('post', [
+            "active"=>"posts",
             "title"=>"posts",
             "post"=>$post
         ]);

@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-// use App\Models\Post;
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PostFactory extends Factory
@@ -22,10 +22,13 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            // "title"=> $this->faker->sentence(),
-            // "slug"=>$this->faker->slug(),
-            // "summary"=>$this->faker->sentence(),
-            // "content"=>$this->faker->paragraphs(5)
+            "title"=> $this->faker->sentence(mt_rand(2, 8)),
+            "slug"=> $this->faker->slug(),
+            "summary"=> $this->faker->paragraph(),
+            // "content"=> '<p>' .implode('<p></p>', $this->faker->paragraphs(mt_rand(5, 10))) . '</p>',
+            "content" => collect($this->faker->paragraphs(mt_rand(5,10)))->map(fn($p) => "<p>$p</p>")->implode(''),
+            "user_id"=>mt_rand(1,10),
+            "category_id"=>mt_rand(1,2)
         ];
     }
 }

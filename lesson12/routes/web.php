@@ -48,7 +48,7 @@ Route::get('/authors/{author:username}', function(User $author){
     return view('posts', [
         "active"=>"categories",
         "title"=>"<h6><a href='/posts' class='text-decoration-none text-dark'>Post</a> &raquo;</h6> <h5 style='color:red'>$author->name</h5>",
-        "posts"=>$author->posts
+        "posts"=>$author->posts->load('category', 'author')
     ]);
 });
 

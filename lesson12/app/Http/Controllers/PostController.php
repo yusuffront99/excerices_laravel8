@@ -12,7 +12,8 @@ class PostController extends Controller
         return view('posts', [
             "active" => "posts",
             "title" => "All Post",
-            // "posts" => Post::all()
+            // "posts" => Post::all() --- eager loading 
+            // "posts" => Post::with(['author','category'])->latest()->get()
             "posts" => Post::latest()->get()
         ]);
     }

@@ -2,6 +2,8 @@
 
 @section('container')
     <div class="container mt-4">
+        <h1>Post Category : {{$category}}</h1>
+        
         @foreach ($posts as $post)
         <div class="card my-4">
             <div class="card-header bg-dark text-white">

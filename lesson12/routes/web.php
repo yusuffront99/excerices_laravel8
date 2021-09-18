@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +19,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home', [
         "active" => "home"
+    ]);
+});
+
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/{post:slug}', [PostController::class, 'show']);
+
+// Route::get('/categories', [CategoryController::class, 'category']);
+Route::get('/categories/{category:slug}', function(Category $category){
+    return view('categories', [
+        "active"=>"categories",
+        "category"=>$category->name,
+        "posts"=>$category->posts
     ]);
 });
 

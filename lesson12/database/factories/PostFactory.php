@@ -24,6 +24,7 @@ class PostFactory extends Factory
         return [
             
             "user_id"=>mt_rand(1,10),
+            "category_id"=>mt_rand(1,3),
             "title"=>$this->faker->sentence(mt_rand(1,10)),
             "slug"=>$this->faker->slug(),
             "summary"=>$this->faker->paragraph(),

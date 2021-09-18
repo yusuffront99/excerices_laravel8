@@ -9,7 +9,7 @@
             <div class="card-body">
                 <h3 class="card-title text-center">{{$post->title}}</h3><hr>
                 <p>
-                    <b>By Category : <a href="/categories/{{$post->category->slug}}">{{$post->category->name}}</a> </b>
+                    <b>By Created : <a href="/authors/{{$post->author->username}}" class="text-decoration-none">{{$post->author->name}}</a> in <a href="/categories/{{$post->category->slug}}" class="text-decoration-none">{{$post->category->name}}</a> </b>
                 </p>
                 <p class="card-text">{!!$post->content!!}</p>
                 <a href="/posts" class="btn btn-primary">Go somewhere</a>

@@ -2,6 +2,7 @@
 
 @section('container')
     <div class="container mt-4">
+        <h3>{!!$title!!}</h3><hr>
         @foreach ($posts as $post)
         <div class="card my-4">
             <div class="card-header bg-dark text-white">
@@ -9,7 +10,7 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title">{{$post->title}}</h5>
-                <small class="text-muted">Created by : <a href="/authors/">{{$post->user->name}}</a> in <a href=""></a>{{$post->category->name}} </small><hr>
+                <small class="text-muted">Created by : <a href="/authors/{{$post->author->username}}" class="text-decoration-none">{{$post->author->name}}</a> in <a href="/categories/{{$post->category->slug}}" class="text-decoration-none">{{$post->category->name}}</a> </small><hr>
 
                 <p class="card-text">{{$post->summary}}</p>
                 <a href="/posts/{{$post->slug}}" class="btn btn-primary">Read More ...</a>

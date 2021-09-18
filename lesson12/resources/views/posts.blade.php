@@ -9,7 +9,7 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title">{{$post->title}}</h5>
-                <small class="text-muted">Created by : <a href=""></a>{{$post->category->name}} </small><hr>
+                <small class="text-muted">Created by : <a href="/authors/">Ahmad</a> in <a href=""></a>{{$post->category->name}} </small><hr>
 
                 <p class="card-text">{{$post->summary}}</p>
                 <a href="/posts/{{$post->slug}}" class="btn btn-primary">Read More ...</a>

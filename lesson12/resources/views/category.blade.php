@@ -2,10 +2,8 @@
 
 @section('container')
     <div class="container mt-4">
-        @foreach ($categories as $category)
         <ul>
-            <li><a href="">{{$category->name}}</a></li>
+            <li><a href="">{{$category}}</a></li>
         </ul>
-        @endforeach
     </div>
 @endsection

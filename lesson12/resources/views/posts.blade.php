@@ -29,7 +29,7 @@
 
         @if ($posts->count())
         <div class="card mb-3 mt-4">
-            <img src="https://source.unsplash.com/1600x400?{{$posts[0]->category->name}}" class="card-img-top" alt="...">
+            <img src="https://source.unsplash.com/1600x400?{{$posts[0]->category->name}}" class="card-img-top" alt="{{$posts[0]->category->name}}">
             <div class="card-body text-center">
                 <h5 class="card-title">{{$posts[0]->title}}</h5>
                 <p class="card-text">{{$posts[0]->summary}}</p>
@@ -40,6 +40,27 @@
         @else
             <p class="fs-4">Post Not Found</p>
         @endif
+
+        <div class="container">
+            <div class="row">
+                @foreach ($posts as $post)
+                <div class="card mx-2 my-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                        <img src="https://source.unsplash.com/1800x2000?{{$post->category->name}}" class="img-fluid rounded-start" alt="{{$post->category->name}}">
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
 
     </div>
 @endsection

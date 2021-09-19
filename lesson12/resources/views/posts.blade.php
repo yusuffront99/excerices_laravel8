@@ -49,8 +49,9 @@
                     <div class="position-absolute bg-dark px-3 py-2"><a href="/posts/{{$post->slug}}" class="text-decoration-none text-white">{{$post->category->name}}</a></div>
                     <img src="https://source.unsplash.com/1600x800?{{$post->category->name}}" class="card-img-top" alt="{{$post->category->name}}">
                     <div class="card-body">
-                        <p class="card-text"><small>Wrote by : <a href="/authors/{{$posts[0]->author->username}}" class="text-decoration-none">{{$post->author->name}}</a></small></p><hr>
                         <h5 class="card-title"><a href="/posts/{{$post->slug}}" class="text-decoration-none text-dark">{{$post->title}}</a></h5>
+                        <p class="card-text"><small>Wrote by : <a href="/authors/{{$posts[0]->author->username}}" class="text-decoration-none">{{$post->author->name}}</a> &#9201; {{$posts[0]->created_at->diffForHumans()}}</small></p>
+                        <hr>
                         <p class="card-text">{{$post->summary}}</p>
                         <a href="/posts/{{$post->slug}}" class="btn btn-primary">Read More ...</a>
                     </div>

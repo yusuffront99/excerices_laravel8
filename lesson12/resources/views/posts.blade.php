@@ -46,10 +46,13 @@
             @foreach ($posts as $post)
                 <div class="col-sm-4 my-3">
                     <div class="card">
+                    <div class="position-absolute bg-dark px-3 py-2"><a href="/posts/{{$post->slug}}" class="text-decoration-none text-white">{{$post->category->name}}</a></div>
+                    <img src="https://source.unsplash.com/1600x800?{{$post->category->name}}" class="card-img-top" alt="{{$post->category->name}}">
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p class="card-text"><small>Wrote by : <a href="/authors/{{$posts[0]->author->username}}" class="text-decoration-none">{{$post->author->name}}</a></small></p><hr>
+                        <h5 class="card-title"><a href="/posts/{{$post->slug}}" class="text-decoration-none text-dark">{{$post->title}}</a></h5>
+                        <p class="card-text">{{$post->summary}}</p>
+                        <a href="/posts/{{$post->slug}}" class="btn btn-primary">Read More ...</a>
                     </div>
                     </div>
                 </div>

@@ -14,23 +14,13 @@ class PostController extends Controller
         // if( request('search')){
         //     $posts->where('title', 'like', '%' . request('search') . '%'); 
         // }
-
-        $posts = Post::latest();
-
-        if(request('search')){
-            $posts->where('title', 'like', '%' . request('search') . '%');
-        }
-
-
-        
-
         return view('posts', [
             "active" => "posts",
             "title" => "All Posts",
             // "posts" => Post::all() --- eager loading 
             // "posts" => Post::with(['author','category'])->latest()->get()
             // "posts" => Post::latest()->get()
-            "posts" => $posts->get()
+            "posts" => Post::latest()->filter(request(['search', 'category']))->get()
         ]);
     }
 

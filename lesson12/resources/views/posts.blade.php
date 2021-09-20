@@ -24,19 +24,23 @@
 
 @section('container')
 
-    <div class="container mt-4 text-center">
-        <h3>{!!$title!!}</h3>
+    <div class="container mt-4">
 
-        <div class="row justify-content-center mt-3">
+        <div class="row justify-content-center mt-3 text-center">
             <div class="col-md-6">
                 <form action="/posts">
+                    @if (request('category'))
+                        <input type="hidden" name="category" value="{{request('category')}}">
+                    @endif
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control"  name="search" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
+                        <input type="text" class="form-control"  name="search" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2" value="{{request('search')}}">
                         <button class="btn btn-primary" type="submit">Search</button>
                     </div>
                 </form>
             </div>
         </div>
+
+        <h3>{!!$title!!}</h3>
 
         @if ($posts->count())
         <div class="card mb-3">
@@ -44,7 +48,7 @@
             <div class="card-body text-center">
                 <h5 class="card-title">{{$posts[0]->title}}</h5>
                 <p class="card-text">{{$posts[0]->summary}}</p>
-                <p class="card-text"><small>Wrote by : <a href="/authors/{{$posts[0]->author->username}}" class="text-decoration-none">{{$posts[0]->author->name}} </a> in <a href="/categories/{{$posts[0]->category->slug}}" class="text-decoration-none">{{$posts[0]->category->name}}</a></small> <small class="text-muted mb-2">&#9201; lasted post {{$posts[0]->created_at->diffForHumans()}}</small>
+                <p class="card-text"><small>Wrote by : <a href="/authors/{{$posts[0]->author->username}}" class="text-decoration-none">{{$posts[0]->author->name}} </a> in <a href="/posts?category={{$posts[0]->category->slug}}" class="text-decoration-none">{{$posts[0]->category->name}}</a></small> <small class="text-muted mb-2">&#9201; lasted post {{$posts[0]->created_at->diffForHumans()}}</small>
                 </p>
                 <a class="btn btn-primary btn-sm" href="/posts/{{$posts[0]->slug}}">Read More</a>
             </div>
@@ -55,7 +59,7 @@
             @foreach ($posts as $post)
                 <div class="col-sm-4 my-3">
                     <div class="card">
-                    <div class="position-absolute bg-dark px-3 py-2"><a href="/posts/{{$post->slug}}" class="text-decoration-none text-white">{{$post->category->name}}</a></div>
+                    <div class="position-absolute bg-dark px-3 py-2"><a href="/posts?category={{$post->category->slug}}" class="text-decoration-none text-white">{{$post->category->name}}</a></div>
                     <img src="https://source.unsplash.com/1600x800?{{$post->category->name}}" class="card-img-top" alt="{{$post->category->name}}">
                     <div class="card-body">
                         <h5 class="card-title"><a href="/posts/{{$post->slug}}" class="text-decoration-none text-dark">{{$post->title}}</a></h5>

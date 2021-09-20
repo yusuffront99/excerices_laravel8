@@ -27,7 +27,7 @@
     <div class="container mt-4 text-center">
         <h3>{!!$title!!}</h3>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mt-3">
             <div class="col-md-6">
                 <form action="/posts">
                     <div class="input-group mb-3">
@@ -39,7 +39,7 @@
         </div>
 
         @if ($posts->count())
-        <div class="card mb-3 mt-4">
+        <div class="card mb-3">
             <img src="https://source.unsplash.com/1600x400?{{$posts[0]->category->name}}" class="card-img-top" alt="{{$posts[0]->category->name}}">
             <div class="card-body text-center">
                 <h5 class="card-title">{{$posts[0]->title}}</h5>

@@ -37,7 +37,7 @@ Route::get('/categories', function(){
 Route::get('/categories/{category:slug}', function(Category $category){
     return view('posts', [
         "active"=>"posts",
-        "title"=>"<h6><a href='/posts' class='text-decoration-none text-dark'>Category</a> &raquo;</h6> <h5 style='color:red'>$category->name</h5>",
+        "title"=>"<h6><a href='/categories' class='text-decoration-none text-dark'>Category</a> &raquo;</h6> <h5 style='color:red'>$category->name</h5>",
         "posts"=>$category->posts
     ]);
 });

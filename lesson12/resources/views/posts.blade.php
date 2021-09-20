@@ -23,9 +23,20 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="container mt-4">
+
+    <div class="container mt-4 text-center">
         <h3>{!!$title!!}</h3>
-        <small class="text-muted mb-2">&#9201; lasted post {{$posts[0]->created_at->diffForHumans()}}</small>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="/posts">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control"  name="search" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
         @if ($posts->count())
         <div class="card mb-3 mt-4">
@@ -33,13 +44,11 @@
             <div class="card-body text-center">
                 <h5 class="card-title">{{$posts[0]->title}}</h5>
                 <p class="card-text">{{$posts[0]->summary}}</p>
-                <p class="card-text"><small>Wrote by : <a href="/authors/{{$posts[0]->author->username}}" class="text-decoration-none">{{$posts[0]->author->name}} </a> in <a href="/categories/{{$posts[0]->category->slug}}" class="text-decoration-none">{{$posts[0]->category->name}}</a> </small></p>
+                <p class="card-text"><small>Wrote by : <a href="/authors/{{$posts[0]->author->username}}" class="text-decoration-none">{{$posts[0]->author->name}} </a> in <a href="/categories/{{$posts[0]->category->slug}}" class="text-decoration-none">{{$posts[0]->category->name}}</a></small> <small class="text-muted mb-2">&#9201; lasted post {{$posts[0]->created_at->diffForHumans()}}</small>
+                </p>
                 <a class="btn btn-primary btn-sm" href="/posts/{{$posts[0]->slug}}">Read More</a>
             </div>
         </div>
-        @else
-            <p class="fs-4">Post Not Found</p>
-        @endif
 
         <div class="container">
             <div class="row">
@@ -59,7 +68,10 @@
                 </div>
             @endforeach
             </div>
-        </div>
-
+        </div>  
     </div>
+
+    @else
+    <p class="fs-4">Post Not Found</p>
+    @endif
 @endsection

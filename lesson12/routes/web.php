@@ -34,22 +34,22 @@ Route::get('/categories', function(){
     ]);
 });
 
-Route::get('/categories/{category:slug}', function(Category $category){
-    return view('posts', [
-        "active"=>"posts",
-        "title"=>"<h6><a href='/categories' class='text-decoration-none text-dark'>Category</a> &raquo;</h6> <h5 style='color:red'>$category->name</h5>",
-        "posts"=>$category->posts
-    ]);
-});
+// Route::get('/categories/{category:slug}', function(Category $category){
+//     return view('posts', [
+//         "active"=>"posts",
+//         "title"=>"<h6><a href='/categories' class='text-decoration-none text-dark'>Category</a> &raquo;</h6> <h5 style='color:red'>$category->name</h5>",
+//         "posts"=>$category->posts
+//     ]);
+// });
 
 
 
-Route::get('/authors/{author:username}', function(User $author){
-    return view('posts', [
-        "active"=>"categories",
-        "title"=>"<h6><a href='/posts' class='text-decoration-none text-dark'>Post</a> &raquo;</h6> <h5 style='color:red'>$author->name</h5>",
-        "posts"=>$author->posts->load('category', 'author')
-    ]);
-});
+// Route::get('/authors/{author:username}', function(User $author){
+//     return view('posts', [
+//         "active"=>"categories",
+//         "title"=>"<h6><a href='/posts' class='text-decoration-none text-dark'>Post</a> &raquo;</h6> <h5 style='color:red'>$author->name</h5>",
+//         "posts"=>$author->posts->load('category', 'author')
+//     ]);
+// });
 
 

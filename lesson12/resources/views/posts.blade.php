@@ -63,7 +63,7 @@
                     <div class="position-absolute bg-dark px-3 py-2"><a href="/posts?category={{$post->category->slug}}" class="text-decoration-none text-white">{{$post->category->name}}</a></div>
                     <img src="https://source.unsplash.com/1600x800?{{$post->category->name}}" class="card-img-top" alt="{{$post->category->name}}">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="/posts/{{$post->slug}}" class="text-decoration-none text-dark">{{$post->title}}</a></h5>
+                        <h5 class="card-title"><a href="/posts?={{$post->slug}}" class="text-decoration-none text-dark">{{$post->title}}</a></h5>
                         <p class="card-text"><small>Wrote by : <a href="/posts?author={{$post->author->username}}" class="text-decoration-none">{{$post->author->name}}</a> &#9201; {{$post->created_at->diffForHumans()}}</small></p>
                         <hr>
                         <p class="card-text">{{$post->summary}}</p>
@@ -74,12 +74,12 @@
             @endforeach
             </div>
             @else
-            <p class="fs-4">Post Not Found</p>
-            @endif
-        
-            <div class="d-flex justify-content-end">
-                {{$posts->links()}}
-            </div>
+    <p class="fs-4">Post Not Found</p>
+    @endif
+
+    <div class="d-flex justify-content-end">
+        {{$posts->links()}}
+    </div>
         </div>  
     </div>
 @endsection

@@ -29,8 +29,9 @@
         <div class="row justify-content-center mt-3 text-center">
             <div class="col-md-6">
                 <form action="/posts">
-                    @if (request('category'))
+                    @if (request(['category','author']))
                         <input type="hidden" name="category" value="{{request('category')}}">
+                        <input type="hidden" name="author" value="{{request('author')}}">
                     @endif
                     <div class="input-group mb-3">
                         <input type="text" class="form-control"  name="search" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2" value="{{request('search')}}">
@@ -40,7 +41,7 @@
             </div>
         </div>
 
-        <h3>{!!$title!!}</h3>
+        {!!$title!!}
 
         @if ($posts->count())
         <div class="card mb-3">
@@ -48,7 +49,7 @@
             <div class="card-body text-center">
                 <h5 class="card-title">{{$posts[0]->title}}</h5>
                 <p class="card-text">{{$posts[0]->summary}}</p>
-                <p class="card-text"><small>Wrote by : <a href="/authors/{{$posts[0]->author->username}}" class="text-decoration-none">{{$posts[0]->author->name}} </a> in <a href="/posts?category={{$posts[0]->category->slug}}" class="text-decoration-none">{{$posts[0]->category->name}}</a></small> <small class="text-muted mb-2">&#9201; lasted post {{$posts[0]->created_at->diffForHumans()}}</small>
+                <p class="card-text"><small>Wrote by : <a href="/posts?author={{$posts[0]->author->username}}" class="text-decoration-none">{{$posts[0]->author->name}} </a> in <a href="/posts?category={{$posts[0]->category->slug}}" class="text-decoration-none">{{$posts[0]->category->name}}</a></small> <small class="text-muted mb-2">&#9201; lasted post {{$posts[0]->created_at->diffForHumans()}}</small>
                 </p>
                 <a class="btn btn-primary btn-sm" href="/posts/{{$posts[0]->slug}}">Read More</a>
             </div>
@@ -63,7 +64,7 @@
                     <img src="https://source.unsplash.com/1600x800?{{$post->category->name}}" class="card-img-top" alt="{{$post->category->name}}">
                     <div class="card-body">
                         <h5 class="card-title"><a href="/posts/{{$post->slug}}" class="text-decoration-none text-dark">{{$post->title}}</a></h5>
-                        <p class="card-text"><small>Wrote by : <a href="/authors/{{$posts[0]->author->username}}" class="text-decoration-none">{{$post->author->name}}</a> &#9201; {{$posts[0]->created_at->diffForHumans()}}</small></p>
+                        <p class="card-text"><small>Wrote by : <a href="/posts?author={{$post->author->username}}" class="text-decoration-none">{{$post->author->name}}</a> &#9201; {{$post->created_at->diffForHumans()}}</small></p>
                         <hr>
                         <p class="card-text">{{$post->summary}}</p>
                         <a href="/posts/{{$post->slug}}" class="btn btn-primary">Read More ...</a>

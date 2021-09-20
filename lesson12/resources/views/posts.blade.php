@@ -73,10 +73,13 @@
                 </div>
             @endforeach
             </div>
+            @else
+            <p class="fs-4">Post Not Found</p>
+            @endif
+        
+            <div class="d-flex justify-content-end">
+                {{$posts->links()}}
+            </div>
         </div>  
     </div>
-
-    @else
-    <p class="fs-4">Post Not Found</p>
-    @endif
 @endsection

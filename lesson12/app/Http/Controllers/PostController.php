@@ -35,7 +35,10 @@ class PostController extends Controller
             // "posts" => Post::all() --- eager loading 
             // "posts" => Post::with(['author','category'])->latest()->get()
             // "posts" => Post::latest()->get()
-            "posts" => Post::latest()->filter(request(['search', 'category','author']))->get()
+            // "posts" => Post::latest()->filter(request(['search', 'category','author']))->get()
+
+            //Create paginations
+            "posts" => Post::latest()->filter(request(['search', 'category','author']))->paginate(7)
         ]);
     }
 

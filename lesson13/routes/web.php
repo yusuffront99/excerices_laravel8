@@ -53,6 +53,8 @@ Route::get('/categories', function(){
 // });
 
 // laravel part 14
-Route::get('login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index']);
+
+Route::get('/register', [RegisterController::class, 'index']);
 
 

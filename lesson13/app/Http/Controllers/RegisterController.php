@@ -21,8 +21,9 @@ class RegisterController extends Controller
         // get data request
         $validateData =  $request->validate([
             'name' => 'required|max:255',
-            'username' => ['required', 'min:3', 'max:255', 'unique:users'],
-            'email' => 'required|email:dns|unique:users',
+            // add unique:tb_name
+            'username' => ['required', 'min:3', 'max:255'],
+            'email' => 'required|email:dns',
             'password' => 'required|min:5|max:255'
             ]);
 
@@ -35,8 +36,9 @@ class RegisterController extends Controller
         // dd('success');
         User::create($validateData);
 
-        $request->session()->flash('success', 'Registration successfully! please login');
+        // $request->session()->flash('success', 'Registration successfully! please login');
+        // return redirect('/login'); ===== ONE WAY
 
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Registration successfully! please login');
     }
 }

@@ -6,22 +6,45 @@
         <div class="col-md-4">
             <h1 class="text-center mt-4">Form Register</h1>
             <main class="form-register">
-                <form>
+                <form action="/register" method="post">
+                    
+                    {{-- preventing csrf --}}
+                    @csrf
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="name" placeholder="name" name="name">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name" name="name">
                         <label for="name">Name</label>
+                        @error('name')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror 
                     </div>
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="username" placeholder="username" name="username">
+                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="username" name="username">
                         <label for="username">Username</label>
+                        @error('username')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror 
                     </div>
                     <div class="form-floating">
-                        <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
+                        <input type="email" class="form-control  @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email">
                         <label for="email">Email</label>
+                        @error('email')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror 
                     </div>
                     <div class="form-floating">
-                        <input type="password" class="form-control" id="password" placeholder="password" name="password">
+                        <input type="password" class="form-control  @error('password') is-invalid @enderror" id="password" placeholder="password" name="password">
                         <label for="password">Password</label>
+                        @error('password')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror 
                     </div>
     
                     <button class="w-100 btn btn-lg btn-primary mt-2 mb-3" type="submit">Register</button>

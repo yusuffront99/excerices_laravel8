@@ -11,7 +11,7 @@
                     {{-- preventing csrf --}}
                     @csrf
                     <div class="form-floating">
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name" name="name">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name" name="name" required>
                         <label for="name">Name</label>
                         @error('name')
                         <div class="invalid-feedback">
@@ -20,7 +20,7 @@
                         @enderror 
                     </div>
                     <div class="form-floating">
-                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="username" name="username">
+                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="username" name="username" required>
                         <label for="username">Username</label>
                         @error('username')
                         <div class="invalid-feedback">
@@ -29,7 +29,7 @@
                         @enderror 
                     </div>
                     <div class="form-floating">
-                        <input type="email" class="form-control  @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email">
+                        <input type="email" class="form-control  @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email" required>
                         <label for="email">Email</label>
                         @error('email')
                         <div class="invalid-feedback">
@@ -38,7 +38,7 @@
                         @enderror 
                     </div>
                     <div class="form-floating">
-                        <input type="password" class="form-control  @error('password') is-invalid @enderror" id="password" placeholder="password" name="password">
+                        <input type="password" class="form-control  @error('password') is-invalid @enderror" id="password" placeholder="password" name="password" required>
                         <label for="password">Password</label>
                         @error('password')
                         <div class="invalid-feedback">

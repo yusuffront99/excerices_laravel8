@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class RegisterController extends Controller
 {
@@ -23,7 +24,6 @@ class RegisterController extends Controller
             'password'=>'required|min:5|max:255'
         ]);
 
-        dd('success');
-    // The blog post is valid...
+        User::create($validated);
     }
 }

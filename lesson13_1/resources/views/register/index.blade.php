@@ -11,7 +11,7 @@
                     {{-- preventing csrf --}}
                     @csrf
                     <div class="form-floating">
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name" name="name" required>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name" name="name" required value="{{old('name')}}">
                         <label for="name">Name</label>
                         @error('name')
                         <div class="invalid-feedback">
@@ -20,7 +20,7 @@
                         @enderror 
                     </div>
                     <div class="form-floating">
-                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="username" name="username" required>
+                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="username" name="username" required value="{{old('name')}}">
                         <label for="username">Username</label>
                         @error('username')
                         <div class="invalid-feedback">
@@ -29,7 +29,7 @@
                         @enderror 
                     </div>
                     <div class="form-floating">
-                        <input type="email" class="form-control  @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email" required>
+                        <input type="email" class="form-control  @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email" required value="{{old('name')}}">
                         <label for="email">Email</label>
                         @error('email')
                         <div class="invalid-feedback">
@@ -50,7 +50,7 @@
                     <button class="w-100 btn btn-lg btn-primary mt-2 mb-3" type="submit">Register</button>
                 </form>
     
-                <small class="d-block text-center mt-3">Already registration? <a href="/register">Login Now!</a></small>
+                <small class="d-block text-center mt-3">Already registration? <a href="/login">Login Now!</a></small>
             </main>
         </div>
     </div>

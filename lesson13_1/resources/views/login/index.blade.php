@@ -4,7 +4,7 @@
     
 <div class="row justify-content-center">
     <div class="col-md-4">
-        <h1 class="text-center mt-4">Login Form</h1>
+        <h1 class="text-center mt-4">Form Login</h1>
         <main class="form-signin">
             <form>
                 <div class="form-floating">

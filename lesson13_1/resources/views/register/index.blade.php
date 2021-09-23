@@ -6,7 +6,7 @@
         <div class="col-md-4">
             <h1 class="text-center mt-4">Form Register</h1>
             <main class="form-register">
-                <form action="/register" method="post">
+                <form action="/register" method="POST">
                     
                     {{-- preventing csrf --}}
                     @csrf
@@ -20,7 +20,7 @@
                         @enderror 
                     </div>
                     <div class="form-floating">
-                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="username" name="username" required value="{{old('name')}}">
+                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="username" name="username" required value="{{old('username')}}">
                         <label for="username">Username</label>
                         @error('username')
                         <div class="invalid-feedback">
@@ -29,7 +29,7 @@
                         @enderror 
                     </div>
                     <div class="form-floating">
-                        <input type="email" class="form-control  @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email" required value="{{old('name')}}">
+                        <input type="email" class="form-control  @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email" required value="{{old('email')}}">
                         <label for="email">Email</label>
                         @error('email')
                         <div class="invalid-feedback">

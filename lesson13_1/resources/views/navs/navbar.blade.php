@@ -10,11 +10,28 @@
             <a class="nav-link {{($active === 'home') ? 'active' : ''}}" aria-current="page" href="/">Home</a>
             </li>
         </ul>
+
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+                @auth
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Hello, {{auth()->user()->name}}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-speedometer2"></i> My Dashboard</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                    </ul>
+                </li>
+        </ul>
+        @else
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
             <a class="nav-link {{($active === 'login') ? 'active' : ''}}" aria-current="page" href="/login"><i class="bi bi-arrow-return-right"></i> Login</a>
             </li>
         </ul>
+        @endauth
+        
     </div>
 </div>
 </nav>

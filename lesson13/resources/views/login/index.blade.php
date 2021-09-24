@@ -11,15 +11,15 @@
             </div>
         @endif
 
-        @if (session()->has('failed'))
-            <div class="alert alert-success alert-dismissable fade show" role="alert">
+        <main class="form-signin">
+            <h1 class="h3 mb-3 fw-normal text-center">Please Login</h1>
+            @if (session()->has('failed'))
+            <div class="alert alert-danger alert-dismissable fade show" role="alert">
                 {{session('failed')}}
                 <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        @endif
+            @endif
 
-        <main class="form-signin">
-            <h1 class="h3 mb-3 fw-normal text-center">Please Login</h1>
             <form action="" method="POST">
                 @csrf
                 <div class="form-floating">

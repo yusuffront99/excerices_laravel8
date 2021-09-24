@@ -21,6 +21,11 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        dd('berhasil');
+        if(Auth::attempt($credential)) {
+            $request->session->regererate();
+            return redirect()->intended('/dashboard');
+        }
+
+        return back()->with('status', 'Login Failed');
     }
 }

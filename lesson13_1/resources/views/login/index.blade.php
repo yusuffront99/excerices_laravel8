@@ -12,6 +12,14 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
+
+        {{-- error status --}}
+        @if(session()->has('status'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{session('status')}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
             <form action="" method="POST">
                 @csrf
                 <div class="form-floating">

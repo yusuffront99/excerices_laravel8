@@ -4,6 +4,11 @@
     <div class="container mt-3">
         <div class="justify-content-center">
             <h4>Form Login</h4>
+            @if (session('success'))
+            <div class="alert alert-success">
+            {{ session('success') }}
+            </div>
+            @endif
             <form action="">
                 <ul>
                     <li>

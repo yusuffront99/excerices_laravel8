@@ -21,7 +21,7 @@
                 <td>{{$post->title}}</td>
                 <td>{{$post->category->name}}</td>
                 <td>
-                    <a href="/dashboard/posts/{{$post->id}}" class="btn btn-info"><span data-feather="eye"></span></a>
+                    <a href="/dashboard/posts/{{$post->slug}}" class="btn btn-info"><span data-feather="eye"></span></a>
                     <a href="" class="btn btn-warning"><span data-feather="edit"></span></a>
                     <a href="" class="btn btn-danger"><span data-feather="x-circle"></span></a>
                 </td>

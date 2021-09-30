@@ -10,7 +10,6 @@
             <a href="" class="btn btn-danger btn-sm">Delete</a>
             <img src="https://source.unsplash.com/1600x600?{{$post->category->name}}" class="card-img-top mt-3" alt="{{$post->category->name}}">
             <p class="card-text">{!!$post->content!!}</p>
-            <a href="/posts" class="btn btn-primary">Back to Main</a>
         </article>
     </div>
 </div>

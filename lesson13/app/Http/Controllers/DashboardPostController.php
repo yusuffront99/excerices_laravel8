@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardPostController extends Controller
@@ -53,6 +54,13 @@ class DashboardPostController extends Controller
             'category_id' => 'required',
             'content' => 'required'
         ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['summary'] = Str::limit(strip_tags($request->content), 200);
+
+        Post::create($validatedData);
+
+        return redirect('/dashboard/posts')->with('success','New post has been added!');
     }
 
     /**

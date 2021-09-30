@@ -6,8 +6,14 @@
 </div>
 
 @if(session()->has('success'))
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success col-lg-8" role="alert">
         {{session('success')}}
+    </div>
+@endif
+
+@if(session()->has('danger'))
+    <div class="alert alert-danger col-lg-8" role="alert">
+        {{session('danger')}}
     </div>
 @endif
 
@@ -29,9 +35,13 @@
                 <td>{{$post->title}}</td>
                 <td>{{$post->category->name}}</td>
                 <td>
-                    <a href="/dashboard/posts/{{$post->slug}}" class="btn btn-info btn-sm"><i class="bi bi-plus-circle-fill fs-0"></i></a>
+                    <a href="/dashboard/posts/{{$post->slug}}" class="btn btn-info btn-sm"><i class="bi bi-eye-fill"></i></a>
                     <a href="" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
-                    <a href="" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></a>
+                    <form action="/dashboard/posts/{{$post->slug}}" class="d-inline" method="POST">
+                        @method('delete')
+                        @csrf
+                        <button class="btn btn-danger btn-sm border-0" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
+                    </form>
                 </td>
             </tr>
             @endforeach

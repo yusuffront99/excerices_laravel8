@@ -10,28 +10,42 @@
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" name="title">
-            <div id="emailHelp" class="form-text"></div>
+            <input type="text" class="form-control  @error('title')is-invalid @enderror" id="title" name="title" required autofocus value="{{old('title')}}">
+            @error('title')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+            @enderror
         </div>
         <div class="mb-3">
-            <label for="slug" class="form-label">Slug</label>
-            <input type="text" class="form-control" id="slug" name="slug" disabled readonly>
-            <div id="emailHelp" class="form-text"></div>
+            <label for="slug" class="form-label @error('slug')is-invalid @enderror">Slug</label>
+            <input type="text" class="form-control" id="slug" name="slug" required value="{{old('slug')}}">
+            @error('slug')
+            <div class="invalid-feedback">
+                {{$message}}
+            </div>
+        @enderror
         </div>
 
         <div class="mb-3">
             <label for="category">Category</label>
             <select name="category_id" class="form-select" aria-label="Default select example">
-                <option selected></option>
                 @foreach ($categories as $category)
-                    <option value="{{$category->id}}">{{$category->name}}</option>
+                    @if (old('category_id') == $category->id){
+                        <option value="{{$category->id}}" selected>{{$category->name}}</option>
+                    }@else{
+                        <option value="{{$category->id}}" >{{$category->name}}</option>
+                    }@endif
                 @endforeach
             </select>
         </div>
 
         <div class="mb-3">
-            <label for="content">Category</label>
-            <input id="content" type="hidden" name="content">
+            <label for="content">Content</label>
+            @error('content')
+                <p class="text-danger">{{$message}}</p>
+            @enderror
+            <input id="content" type="hidden" name="content" value="{{old('content')}}">
             <trix-editor input="content"></trix-editor>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

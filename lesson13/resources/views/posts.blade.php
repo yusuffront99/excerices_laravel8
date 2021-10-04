@@ -45,7 +45,16 @@
 
         @if ($posts->count())
         <div class="card mb-3">
-            <img src="https://source.unsplash.com/1600x400?{{$posts[0]->category->name}}" class="card-img-top" alt="{{$posts[0]->category->name}}">
+            @if ($posts[0]->image)
+            <div style="max-height: 350px; overflow:hidden">
+                <img src="{{asset('storage/' . $posts[0]->image)}}" class="card-img-top mt-3" alt="{{$posts[0]->category->name}}">
+                <a href="">{{$posts[0]->category->name}}</a>
+                
+            </div>
+            @else
+                <img src="https://source.unsplash.com/1600x400?{{$posts[0]->category->name}}" class="card-img-top" alt="{{$posts[0]->category->name}}">
+                <a href="">{{$post->category->name}}</a>
+            @endif
             <div class="card-body text-center">
                 <h5 class="card-title">{{$posts[0]->title}}</h5>
                 <p class="card-text">{{$posts[0]->summary}}</p>

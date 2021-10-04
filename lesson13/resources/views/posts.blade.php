@@ -53,7 +53,7 @@
             </div>
             @else
                 <img src="https://source.unsplash.com/1600x400?{{$posts[0]->category->name}}" class="card-img-top" alt="{{$posts[0]->category->name}}">
-                <a href="">{{$post->category->name}}</a>
+                <a href="">{{$posts[0]->category->name}}</a>
             @endif
             <div class="card-body text-center">
                 <h5 class="card-title">{{$posts[0]->title}}</h5>

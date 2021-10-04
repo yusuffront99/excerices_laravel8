@@ -47,7 +47,7 @@
         <div class="card mb-3">
             @if ($posts[0]->image)
             <div style="max-height: 350px; overflow:hidden">
-                <img src="{{asset('storage/' . $posts[0]->image)}}" class="card-img-top mt-3" alt="{{$posts[0]->category->name}}">
+                <img src="{{asset('storage/' . $posts[0]->image)}}" class="card-img-top" alt="{{$posts[0]->category->name}}">
                 <a href="">{{$posts[0]->category->name}}</a>
                 
             </div>
@@ -66,19 +66,26 @@
 
         <div class="container">
             <div class="row">
-            @foreach ($posts as $post)
-                <div class="col-sm-4 my-3">
-                    <div class="card">
-                    <div class="position-absolute bg-dark px-3 py-2"><a href="/posts?category={{$post->category->slug}}" class="text-decoration-none text-white">{{$post->category->name}}</a></div>
-                    <img src="https://source.unsplash.com/1600x800?{{$post->category->name}}" class="card-img-top" alt="{{$post->category->name}}">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="/posts?={{$post->slug}}" class="text-decoration-none text-dark">{{$post->title}}</a></h5>
-                        <p class="card-text"><small>Wrote by : <a href="/posts?author={{$post->author->username}}" class="text-decoration-none">{{$post->author->name}}</a> &#9201; {{$post->created_at->diffForHumans()}}</small></p>
-                        <hr>
-                        <p class="card-text">{{$post->summary}}</p>
-                        <a href="/posts/{{$post->slug}}" class="btn btn-primary">Read More ...</a>
-                    </div>
-                    </div>
+                @foreach ($posts as $post)
+                    <div class="col-sm-4 my-3">
+                        <div class="card">
+                        @if ($post->image)
+                            <img src="{{asset('storage/' . $post->image)}}" class="card-img-top" alt="{{$post->category->name}}">
+                            {{-- <a href="">{{$post->category->name}}</a> --}}
+                        @else
+                            <img src="https://source.unsplash.com/1600x800?{{$post->category->name}}" class="card-img-top" alt="{{$post->category->name}}">
+                            {{-- <a href="">{{$post->category->name}}</a> --}}
+                        @endif
+                        
+                            {{-- <div class="position-absolute bg-dark px-3 py-2"><a href="/posts?category={{$post->category->slug}}" class="text-decoration-none text-white">{{$post->category->name}}</a></div> --}}
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="/posts?={{$post->slug}}" class="text-decoration-none text-dark">{{$post->title}}</a></h5>
+                                <p class="card-text"><small>Wrote by : <a href="/posts?author={{$post->author->username}}" class="text-decoration-none">{{$post->author->name}}</a> &#9201; {{$post->created_at->diffForHumans()}}</small></p>
+                                <hr>
+                                <p class="card-text">{{$post->summary}}</p>
+                                <a href="/posts/{{$post->slug}}" class="btn btn-primary">Read More ...</a>
+                            </div>
+                        </div>
                 </div>
             @endforeach
             </div>

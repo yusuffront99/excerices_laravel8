@@ -36,7 +36,7 @@
                 <td>{{$post->category->name}}</td>
                 <td>
                     <a href="/dashboard/posts/{{$post->slug}}" class="btn btn-info btn-sm"><i class="bi bi-eye-fill"></i></a>
-                    <a href="" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
+                    <a href="/dashboard/posts/{{$post->slug}}/edit" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
                     <form action="/dashboard/posts/{{$post->slug}}" class="d-inline" method="POST">
                         @method('delete')
                         @csrf

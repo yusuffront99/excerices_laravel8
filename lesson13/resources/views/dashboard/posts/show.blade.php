@@ -6,7 +6,7 @@
         <article class="col-lg-8">
             <h3 class="card-title text-center">{{$post->title}}</h3><hr>
             <a href="/dashboard/posts" class="btn btn-success btn-sm">Back to My Post</a>
-            <a href="" class="btn btn-warning btn-sm">Edit</a>
+            <a href="/dashboard/posts/{{$post->slug}}/edit" class="btn btn-warning btn-sm">Edit</a>
             <form action="/dashboard/posts/{{$post->slug}}" class="d-inline mb-4" method="POST">
                 @method('delete')
                 @csrf

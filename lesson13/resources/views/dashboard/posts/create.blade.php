@@ -42,6 +42,9 @@
 
         <div class="mb-3">
             <label for="content">Content</label>
+            @error('content')
+                <p class="text-danger">{{$message}}</p>
+            @enderror
                 <input id="x" type="hidden" name="content">
                 <trix-editor input="x"></trix-editor>
         </div>

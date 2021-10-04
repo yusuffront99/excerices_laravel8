@@ -86,9 +86,9 @@ class DashboardPostController extends Controller
     public function edit(Post $post)
     {
         return view('dashboard.posts.edit', [
-            'active' => 'Edit Post',
-            'post' =>$post,
-            'categories' => Category::all()
+            "active"=>"Update Post",
+            "post"=>$post,
+            "categories"=>Category::all()
         ]);
     }
 
@@ -108,10 +108,20 @@ class DashboardPostController extends Controller
         ];
 
         if($request->slug != $post->slug){
-            $rules['slug'] = 'requred|unique:posts';
+            $rules['slug'] = 'required|unique:posts';
         }
 
-        $validatedData = $request->validate($rules);
+        $validateDate = $request->validate($rules);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['summary'] = Str::limit(strip_tags($request->content), 200);
+
+        Post::where('id', $post->id)
+            ->update($validateDate);
+        ;
+
+        return redirect('/dashboard/posts')->with('success','update post has been successfully!');
+
     }
 
     /**

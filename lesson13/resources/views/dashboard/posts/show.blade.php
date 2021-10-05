@@ -16,8 +16,8 @@
             </form><br>
 
             @if ($post->image)
-                <div style="max-height: 350px; overflow:hidden" class="mt-3">
-                    <img src="{{asset('storage/' . $post->image)}}">
+                <div style="max-height: 350px; overflow:hidden">
+                    <img src="{{asset('storage/' . $post->image)}}" class="img-fluid mt-3">
                 </div>
             @else
                 <img src="https://source.unsplash.com/1600x600?{{$post->category->name}}" class="card-img-top mt-3" alt="{{$post->category->name}}">

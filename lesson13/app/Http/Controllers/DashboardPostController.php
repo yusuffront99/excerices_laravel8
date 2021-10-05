@@ -117,20 +117,22 @@ class DashboardPostController extends Controller
             'content' => 'required'
         ];
 
-        
+
         if($request->slug != $post->slug){
             $rules['slug'] = 'required|unique:posts';
         }
 
-        $validateDate = $request->validate($rules);
+        $validatedData = $request->validate($rules);
 
-        $request->file('image')->store('post-image');
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['summary'] = Str::limit(strip_tags($request->content), 200);
 
         Post::where('id', $post->id)
-            ->update($validateDate);
+            ->update($validatedData);
         ;
 
         return redirect('/dashboard/posts')->with('success','update post has been successfully!');

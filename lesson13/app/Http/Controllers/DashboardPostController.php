@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardPostController extends Controller
@@ -48,18 +49,15 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
+        return $request->file('image')->store('post-images');
 
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|unique:posts',
             'category_id' => 'required',
-            'image' => 'image|file|max:1024',
             'content' => 'required'
         ]);
 
-        if($request->file('image')){
-            $validatedData['image'] = $request->file('image')->store('post-images');
-        }
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['summary'] = Str::limit(strip_tags($request->content), 200);
@@ -107,6 +105,7 @@ class DashboardPostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        
         $rules = [
             'title' => 'required|max:255',
             'category_id' => 'required',

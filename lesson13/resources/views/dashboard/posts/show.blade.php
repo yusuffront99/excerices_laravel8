@@ -1,5 +1,7 @@
 @extends('dashboard.layouts.main')
 
+
+
 @section('container')
 <div class="container my-3">
     <div class="row">
@@ -12,17 +14,8 @@
                 @csrf
                 <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
             </form><br>
-        
-            @if ($post->image)
-                <div style="max-height: 350px; overflow:hidden">
-                    <img src="{{asset('storage/' . $post->image)}}" class="card-img-top mt-3" alt="{{$post->category->name}}">
-                    <a href="">{{$post->category->name}}</a>
-                    
-                </div>
-            @else
+    
                 <img src="https://source.unsplash.com/1600x600?{{$post->category->name}}" class="card-img-top mt-3" alt="{{$post->category->name}}">
-                <a href="">{{$post->category->name}}</a>
-            @endif
             <p class="card-text">{!!$post->content!!}</p>
         </article>
     </div>

@@ -14,8 +14,16 @@
                 @csrf
                 <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
             </form><br>
-    
+
+            @if ($post->image)
+                <div style="max-height: 350px; overflow:hidden">
+                    <img src="{{asset('storage/' . $post->image)}}" class="card-img-top mt-3" alt="{{$post->category->name}}">
+                </div>
+            @else
                 <img src="https://source.unsplash.com/1600x600?{{$post->category->name}}" class="card-img-top mt-3" alt="{{$post->category->name}}">
+            @endif
+    
+                
             <p class="card-text">{!!$post->content!!}</p>
         </article>
     </div>

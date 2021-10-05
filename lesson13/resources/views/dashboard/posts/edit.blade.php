@@ -42,6 +42,21 @@
         </div>
 
         <div class="mb-3">
+            <label for="image" class="form-label @error('image')is-invalid @enderror">Post Image</label>
+            @if ($post->image)
+                <img src="{{asset('storage/' . $post->image)}}" alt="" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+            @else
+                <img class="img-preview img-fluid mb-3 col-sm-5">
+            @endif
+            <input class="form-control" type="file" id="image" name="image" onchange="previewImage()">
+            @error('image')
+            <div class="invalid-feedback">
+                {{$message}}
+            </div>
+            @enderror
+        </div>
+
+        <div class="mb-3">
             <label for="content">Content</label>
             @error('content')
                 <p class="text-danger">{{$message}}</p>
@@ -67,19 +82,19 @@
         e.preventDefault()
     });
 
-    // function previewImage(){
-    //     const img = document.querySelector('#image');
-    //     const imgPreview = document.querySelector('.img-preview');
+    function previewImage(){
+        const img = document.querySelector('#image');
+        const imgPreview = document.querySelector('.img-preview');
 
-    //     imgPreview.style.display = 'block';
+        imgPreview.style.display = 'block';
 
-    //     const oFReader = new FileReader();
-    //     oFReader.readAsDataURL(image.files[0]);
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
 
-    //     oFReader.onload = function(oFRevent){
-    //         imgPreview.src = oFRevent.target.result;
-    //     }
-    // }
+        oFReader.onload = function(oFRevent){
+            imgPreview.src = oFRevent.target.result;
+        }
+    }
 </script>
 @endsection
 

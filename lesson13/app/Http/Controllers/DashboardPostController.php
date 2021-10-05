@@ -113,14 +113,18 @@ class DashboardPostController extends Controller
         $rules = [
             'title' => 'required|max:255',
             'category_id' => 'required',
+            'image' => 'image|file|max:1024',
             'content' => 'required'
         ];
 
+        
         if($request->slug != $post->slug){
             $rules['slug'] = 'required|unique:posts';
         }
 
         $validateDate = $request->validate($rules);
+
+        $request->file('image')->store('post-image');
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['summary'] = Str::limit(strip_tags($request->content), 200);

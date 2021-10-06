@@ -6,18 +6,18 @@
 </div>
 
 @if(session()->has('success'))
-    <div class="alert alert-success col-lg-8" role="alert">
+    <div class="alert alert-success col-lg-6" role="alert">
         {{session('success')}}
     </div>
 @endif
 
 @if(session()->has('danger'))
-    <div class="alert alert-danger col-lg-8" role="alert">
+    <div class="alert alert-danger col-lg-6" role="alert">
         {{session('danger')}}
     </div>
 @endif
 
-<div class="table-responsive col-lg-9">
+<div class="table-responsive col-lg-6">
     <a href="/dashboard/categories/create" class="btn btn-primary mb-3">Create new Category</a>
     <table class="table table-striped table-sm">
         <thead>

@@ -14,6 +14,13 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
+        // FORBIDDEN USER 
+        // if(auth()->guest()|| auth()->user()->username !== 'yusuffront'){
+        //     abort(403);
+        // }
+
+        
+
         return view('dashboard.categories.index',[
             'active'=>'Category Post',
             'categories'=>Category::all()

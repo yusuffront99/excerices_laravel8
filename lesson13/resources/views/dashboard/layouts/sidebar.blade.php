@@ -2,16 +2,29 @@
     <div class="position-sticky pt-3">
         <ul class="nav flex-column">
             <li class="nav-item">
-            <a class="nav-link {{Request::is('dashboard') ? 'active' : ''}}" aria-current="page" href="/dashboard">
-                <i class="bi bi-speedometer2"></i>
-                Dashboard
-            </a>
+                <a class="nav-link {{Request::is('dashboard') ? 'active' : ''}}" aria-current="page" href="/dashboard">
+                    <i class="bi bi-speedometer2"></i>
+                    Dashboard
+                </a>
             </li>
             <li class="nav-item">
-            <a class="nav-link {{Request::is('dashboard/posts*') ? 'active' : ''}}" href="/dashboard/posts">
-                <i class="bi bi-file-earmark-text"></i>
-                My Posts
-            </a>
+                <a class="nav-link {{Request::is('dashboard/posts*') ? 'active' : ''}}" href="/dashboard/posts">
+                    <i class="bi bi-file-earmark-text"></i>
+                    My Posts
+                </a>
+            </li>
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Administrator</span>
+        </h6>
+
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link {{Request::is('dashboard/categories*') ? 'active' : ''}}" aria-current="page" href="/dashboard/categories">
+                    <i class="bi bi-speedometer2"></i>
+                    Post Categories
+                </a>
             </li>
         </ul>
     </div>

@@ -14,7 +14,10 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
-        return "hello developer";
+        return view('dashboard.categories.index',[
+            'active'=>'Category Post',
+            'categories'=>Category::all()
+        ]);
     }
 
     /**

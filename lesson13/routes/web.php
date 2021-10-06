@@ -76,6 +76,7 @@ Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'check
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
 // check with middleware
-// Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
 
-Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show');
+// authorize gate
+// Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show');

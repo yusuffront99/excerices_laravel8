@@ -19,11 +19,11 @@ class AdminCategoryController extends Controller
         //     abort(403);
         // }
 
-        // if(!auth()->check()|| auth()->user()->username !== 'yusuffront'){
-        //     abort(403);
-        // }
+        if(!auth()->check()|| auth()->user()->username !== 'yusuffront'){
+            abort(403);
+        }
 
-        $this->authorize('admin');
+        // $this->authorize('admin');
 
         return view('dashboard.categories.index',[
             'active'=>'Category Post',
